@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trimova — Book a barber. Fill your chair.</title>
+<meta name="description" content="Trimova connects clients with barbershops and mobile barbers across Ghana. Book ahead, skip the queue, and let barbers fill every chair.">
+<link rel="icon" href="assets/brand/trimova-mark.svg" type="image/svg+xml">
+<meta property="og:title" content="Trimova — Book a barber. Fill your chair.">
+<meta property="og:description" content="Barbershop and mobile barber booking, built for Ghana.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://trimova.website/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Bump ?v= whenever styles.css is rebuilt, so browsers pick up the new file. -->
+<link rel="stylesheet" href="assets/css/styles.css?v=1">
+</head>
+<body>
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:m-3 focus:rounded-lg focus:bg-amber focus:px-4 focus:py-3 focus:font-semibold focus:text-night">Skip to main content</a>
+
+<!-- Header sits on top of the hero video and scrolls away with it. -->
+<header id="siteNav" class="absolute inset-x-0 top-0 z-30">
+  <div class="mx-auto flex w-full max-w-[1920px] items-center justify-between gap-6 px-6 py-[clamp(0.75rem,3vh,2.25rem)] lg:px-14">
+    <a href="#home" class="flex shrink-0 items-center gap-2.5" aria-label="Trimova home">
+      <svg viewBox="0 0 160 168" class="h-8 w-auto text-white lg:h-9" aria-hidden="true"><defs><clipPath id="tvShield"><polygon points="0,0 160,0 160,120 80,163 0,120"/></clipPath></defs><g clip-path="url(#tvShield)" fill="currentColor"><path d="M-88.3 93 L80 3 L248.3 93 L248.3 131 L80 41 L-88.3 131 Z"/><path d="M-88.3 146 L80 56 L248.3 146 L248.3 184 L80 94 L-88.3 184 Z"/><path d="M-88.3 199 L80 109 L248.3 199 L248.3 237 L80 147 L-88.3 237 Z"/></g></svg>
+      <span class="font-display text-xl font-semibold tracking-tight text-white lg:text-2xl">Trimova</span>
+    </a>
+
+    <nav class="hidden items-center gap-10 lg:flex" aria-label="Main">
+      <a href="#home" data-navlink class="border-b-2 border-transparent pb-1 text-[0.95rem] font-medium text-white/70 transition-colors hover:text-white">Home</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="#home" class="hidden min-h-11 items-center rounded-full bg-amber px-6 text-sm font-bold text-night transition-transform hover:scale-[1.03] motion-reduce:hover:scale-100 sm:inline-flex">
+        Join the waitlist
+      </a>
+      <button type="button" id="navToggle" aria-expanded="false" aria-controls="mobileNav" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur-md lg:hidden">
+        <span class="sr-only">Open menu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-5 w-5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileNav" hidden class="mx-5 mb-3 rounded-2xl border border-white/10 bg-night-deep/95 p-3 backdrop-blur-xl lg:hidden">
+    <nav class="flex flex-col" aria-label="Mobile">
+      <a href="#home" class="rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/5 hover:text-white">Home</a>
+      <a href="#home" class="mt-2 inline-flex min-h-12 items-center justify-center rounded-xl bg-amber px-4 text-base font-bold text-night">Join the waitlist</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="home" class="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-night lg:justify-center">
+
+  <!-- The loop has captions near the top of the frame and the phone near the bottom,
+       so it is contained rather than cropped. Anchoring it bottom-right leaves the
+       spare space on the left and top, where the copy and header already sit.
+       On small screens it stacks below the copy instead. -->
+  <div class="order-2 mt-14 px-6 lg:absolute lg:inset-0 lg:order-none lg:mt-0 lg:px-0">
+    <video
+      id="heroVideo"
+      class="aspect-video w-full rounded-2xl lg:h-full lg:rounded-none lg:object-contain lg:object-right-bottom"
+      src="assets/brand/trimova-client-hero.mp4"
+      muted loop playsinline preload="auto"
+      aria-label="A looping preview of the Trimova app: finding a barber nearby, then picking a day and time."></video>
+  </div>
+
+  <div class="relative z-10 order-1 mx-auto w-full max-w-[1920px] px-6 pt-32 pb-4 lg:py-0 lg:pr-14 lg:pl-[12%]">
+    <div class="max-w-xl 2xl:max-w-2xl">
+      <h1 class="text-[2.5rem] leading-[1.03] font-bold tracking-tight text-white sm:text-[3rem] lg:text-[3.25rem] 2xl:text-[3.75rem]">
+        Skip the queue.<br>
+        <span class="text-amber">Fill every chair.</span>
+      </h1>
+
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-white/70">
+        Book ahead and sit straight down — while barbers fill their day without the back-and-forth.
+      </p>
+
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a href="#home" class="inline-flex min-h-14 cursor-pointer items-center justify-center rounded-full bg-amber px-8 text-base font-bold text-night transition-transform hover:scale-[1.03] motion-reduce:hover:scale-100">
+          Join the waitlist
+        </a>
+        <a href="#home" class="inline-flex min-h-14 cursor-pointer items-center justify-center rounded-full border border-white/25 px-8 text-base font-semibold text-white transition-colors hover:bg-white/10">
+          I&rsquo;m a barber
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+const heroVideo = document.getElementById('heroVideo');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// Hold on a still frame for anyone who asked for less motion.
+function syncHeroVideo() {
+  if (!heroVideo) return;
+  if (reduceMotion.matches) heroVideo.pause();
+  else heroVideo.play().catch(function () {});
+}
+syncHeroVideo();
+reduceMotion.addEventListener('change', syncHeroVideo);
+
+// Stop decoding the video once it is scrolled out of view.
+if (heroVideo && 'IntersectionObserver' in window) {
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (reduceMotion.matches) return;
+      if (e.isIntersecting) heroVideo.play().catch(function () {});
+      else heroVideo.pause();
+    });
+  }, { threshold: 0.05 }).observe(heroVideo);
+}
+
+// Mobile menu.
+const navToggle = document.getElementById('navToggle');
+const mobileNav = document.getElementById('mobileNav');
+
+function setMenu(open) {
+  navToggle.setAttribute('aria-expanded', String(open));
+  mobileNav.hidden = !open;
+  navToggle.querySelector('.sr-only').textContent = open ? 'Close menu' : 'Open menu';
+}
+
+navToggle.addEventListener('click', function () {
+  setMenu(navToggle.getAttribute('aria-expanded') !== 'true');
+});
+
+mobileNav.querySelectorAll('a').forEach(function (a) {
+  a.addEventListener('click', function () { setMenu(false); });
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+    setMenu(false);
+    navToggle.focus();
+  }
+});
+
+// Underline the nav link for whichever section is in the middle of the screen.
+const navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-navlink]'));
+const sections = navLinks
+  .map(function (l) {
+    const el = document.querySelector(l.getAttribute('href'));
+    return el ? { id: el.id, el: el } : null;
+  })
+  .filter(Boolean);
+
+function activeSectionId() {
+  if (!sections.length) return null;
+  const midline = window.scrollY + window.innerHeight / 2;
+  let current = sections[0].id;
+  for (let i = 0; i < sections.length; i++) {
+    const top = sections[i].el.getBoundingClientRect().top + window.scrollY;
+    if (top <= midline) current = sections[i].id;
+  }
+  return current;
+}
+
+function syncNav() {
+  const id = activeSectionId();
+  navLinks.forEach(function (l) {
+    const on = l.getAttribute('href') === '#' + id;
+    l.classList.toggle('text-white', on);
+    l.classList.toggle('border-amber', on);
+    l.classList.toggle('text-white/70', !on);
+    l.classList.toggle('border-transparent', !on);
+    if (on) l.setAttribute('aria-current', 'true');
+    else l.removeAttribute('aria-current');
+  });
+}
+
+let navTicking = false;
+function requestNavSync() {
+  if (navTicking) return;
+  navTicking = true;
+  requestAnimationFrame(function () { navTicking = false; syncNav(); });
+}
+
+syncNav();
+window.addEventListener('scroll', requestNavSync, { passive: true });
+window.addEventListener('resize', requestNavSync);
+</script>
+</body>
+</html>

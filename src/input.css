@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Indigo, matching the mobile app's accent colour. */
+  --color-brand: #221ea2;
+  --color-brand-deep: #171262;
+  --color-brand-soft: #4e4ad1;
+  --color-brand-wash: #eef0ff;
+
+  /* Text and light surfaces. */
+  --color-ink: #161c27;
+  --color-ink-soft: #4a5568;
+  --color-mark: #2b363c;
+  --color-canvas: #f9f9ff;
+  --color-line: #e2e8f8;
+
+  /* Warm accent, used for buttons and highlights. */
+  --color-amber: #fdb276;
+  --color-amber-wash: #fff4ea;
+  --color-amber-ink: #7c3f06;
+
+  --color-success: #0a8a44;
+  --color-success-wash: #e3f8ec;
+
+  /* Dark background, matched to the hero video's own edge colour. */
+  --color-night: #00131d;
+  --color-night-deep: #00090f;
+  --color-night-line: #16323f;
+
+  /* Purple, taken from the app's barber screens. */
+  --color-violet: #5441b6;
+  --color-violet-bright: #8278e8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  body {
+    background-color: var(--color-night);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  /* Amber reads clearly against the dark background. */
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+}

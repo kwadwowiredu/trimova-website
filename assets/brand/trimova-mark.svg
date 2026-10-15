@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 168" role="img" aria-label="Trimova">
+  <title>Trimova</title>
+  <defs>
+    <clipPath id="tv-shield">
+      <polygon points="0,0 160,0 160,120 80,163 0,120"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#tv-shield)" fill="currentColor">
+    <path d="M-88.3 93 L80 3 L248.3 93 L248.3 131 L80 41 L-88.3 131 Z"/>
+    <path d="M-88.3 146 L80 56 L248.3 146 L248.3 184 L80 94 L-88.3 184 Z"/>
+    <path d="M-88.3 199 L80 109 L248.3 199 L248.3 237 L80 147 L-88.3 237 Z"/>
+  </g>
+</svg>

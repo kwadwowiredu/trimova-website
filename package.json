@@ -1,0 +1,16 @@
+{
+  "name": "trimova-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Marketing website for Trimova — barbershop & mobile barber booking for Ghana",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./assets/css/styles.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/styles.css --minify",
+    "images": "node scripts/optimize-images.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.1.11"
+  }
+}
