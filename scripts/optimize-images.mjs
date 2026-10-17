@@ -6,7 +6,8 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const src = (f) => resolve(root, 'assets/photos', f);
+// A plain filename comes from assets/photos; a path with a slash is relative to the project root.
+const src = (f) => (f.includes('/') ? resolve(root, f) : resolve(root, 'assets/photos', f));
 const out = (f) => resolve(root, 'assets/img', f);
 
 // width = display width x2, for sharpness on high-density screens. Never upscales.
@@ -28,6 +29,12 @@ const JOBS = [
   { from: 'booking_calendar_photo.PNG', to: 'screen-calendar.webp', width: 640, q: 82 },
   { from: 'staff_mgt_photo.PNG', to: 'screen-staff.webp', width: 640, q: 82 },
   { from: 'performance_photo.PNG', to: 'screen-performance.webp', width: 640, q: 82 },
+
+  // Features section. crop values are fractions of the source image.
+  { from: 'assets/img/trimova-client-features.png', to: 'client-features.webp', width: 1800, q: 86 },
+  { from: 'assets/img/trimova-client-features.png', to: 'client-features-phones.webp', width: 860, q: 86,
+    crop: { left: 0.265, top: 0.15, width: 0.465, height: 0.56 } },
+  { from: 'assets/img/trimova-barber-features.png', to: 'barber-features.webp', width: 1800, q: 86 },
 ];
 
 await mkdir(out('.'), { recursive: true });
@@ -38,7 +45,17 @@ let afterTotal = 0;
 for (const job of JOBS) {
   try {
     const before = (await stat(src(job.from))).size;
-    const info = await sharp(src(job.from))
+    let pipeline = sharp(src(job.from));
+    if (job.crop) {
+      const m = await sharp(src(job.from)).metadata();
+      pipeline = pipeline.extract({
+        left: Math.round(job.crop.left * m.width),
+        top: Math.round(job.crop.top * m.height),
+        width: Math.round(job.crop.width * m.width),
+        height: Math.round(job.crop.height * m.height),
+      });
+    }
+    const info = await pipeline
       .resize({ width: job.width, withoutEnlargement: true })
       .webp({ quality: job.q })
       .toFile(out(job.to));

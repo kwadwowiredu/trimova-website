@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <!-- Bump ?v= whenever styles.css is rebuilt, so browsers pick up the new file. -->
-<link rel="stylesheet" href="assets/css/styles.css?v=1">
+<link rel="stylesheet" href="assets/css/styles.css?v=3">
 </head>
 <body>
 
@@ -30,6 +30,7 @@
 
     <nav class="hidden items-center gap-10 lg:flex" aria-label="Main">
       <a href="#home" data-navlink class="border-b-2 border-transparent pb-1 text-[0.95rem] font-medium text-white/70 transition-colors hover:text-white">Home</a>
+      <a href="#features" data-navlink class="border-b-2 border-transparent pb-1 text-[0.95rem] font-medium text-white/70 transition-colors hover:text-white">Features</a>
     </nav>
 
     <div class="flex items-center gap-2">
@@ -46,6 +47,7 @@
   <div id="mobileNav" hidden class="mx-5 mb-3 rounded-2xl border border-white/10 bg-night-deep/95 p-3 backdrop-blur-xl lg:hidden">
     <nav class="flex flex-col" aria-label="Mobile">
       <a href="#home" class="rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/5 hover:text-white">Home</a>
+      <a href="#features" class="rounded-xl px-4 py-3.5 text-base font-medium text-white/80 hover:bg-white/5 hover:text-white">Features</a>
       <a href="#home" class="mt-2 inline-flex min-h-12 items-center justify-center rounded-xl bg-amber px-4 text-base font-bold text-night">Join the waitlist</a>
     </nav>
   </div>
@@ -62,6 +64,7 @@
   <div class="order-2 mt-14 px-6 lg:absolute lg:inset-0 lg:order-none lg:mt-0 lg:px-0">
     <video
       id="heroVideo"
+      data-loop
       class="aspect-video w-full rounded-2xl lg:h-full lg:rounded-none lg:object-contain lg:object-right-bottom"
       src="assets/brand/trimova-client-hero.mp4"
       muted loop playsinline preload="auto"
@@ -91,31 +94,182 @@
   </div>
 </section>
 
+<section id="features" class="scroll-mt-24 bg-white">
+  <div class="mx-auto w-full max-w-[1920px] px-6 py-20 lg:px-14 lg:py-24">
+
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-[1.75rem] leading-tight font-semibold tracking-tight text-ink sm:text-[2rem] lg:text-[2.25rem]">
+        Built for both sides of the chair.
+      </h2>
+      <p class="mt-4 leading-relaxed text-ink-soft sm:text-lg">
+        Whether you are booking a cut or filling one, Trimova is built around how you already work.
+      </p>
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <div class="inline-flex rounded-full border border-line bg-canvas p-1" role="tablist" aria-label="Choose whose features to view">
+        <button type="button" role="tab" id="tab-customer" aria-controls="panel-customer" aria-selected="true"
+          class="min-h-11 cursor-pointer rounded-full bg-amber px-7 text-sm font-bold text-night transition-colors">
+          Customer
+        </button>
+        <button type="button" role="tab" id="tab-barber" aria-controls="panel-barber" aria-selected="false" tabindex="-1"
+          class="min-h-11 cursor-pointer rounded-full px-7 text-sm font-bold text-ink-soft transition-colors hover:text-ink">
+          Barber
+        </button>
+      </div>
+    </div>
+
+    <!-- Each side is one composed image on desktop. Below lg that image is replaced by
+         the phone alone plus the same points as real cards, so the text stays legible. -->
+    <div id="panel-customer" role="tabpanel" aria-labelledby="tab-customer" tabindex="0" class="mt-10 focus-visible:outline-none">
+      <img src="assets/img/client-features.webp" width="1800" height="1261" alt="" aria-hidden="true"
+        class="mx-auto hidden w-full max-w-[1480px] lg:block" loading="lazy">
+
+      <img src="assets/img/client-features-phones.webp" width="860" height="725" loading="lazy"
+        alt="Three phones showing the Trimova app: the home screen, a map of barbers nearby, and the booking calendar."
+        class="mx-auto w-full max-w-sm lg:hidden">
+
+      <ul class="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2 lg:sr-only">
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">01</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Top barbers, recommended</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Browse the shops Trimova recommends and see who is worth the chair.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">02</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Barbers near you</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Open the map and discover shops around your location.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">03</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Your barber, your time</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Choose the barber you prefer, then a date and time slot that suits you.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">04</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Never miss a cut</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Get a reminder before every upcoming appointment.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5 sm:col-span-2">
+          <p class="font-display text-xs font-bold text-brand">05</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Reschedule anytime</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Plans changed? Move your booking to a new slot in a few taps.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div id="panel-barber" role="tabpanel" aria-labelledby="tab-barber" tabindex="0" hidden class="mt-10 focus-visible:outline-none">
+      <!-- The barber art is drawn with an empty middle, so the phone sits inside it. -->
+      <div class="relative mx-auto w-full max-w-[1480px]">
+        <img src="assets/img/barber-features.webp" width="1800" height="1329" alt="" aria-hidden="true"
+          class="hidden w-full lg:block" loading="lazy">
+
+        <video data-loop muted loop playsinline preload="metadata"
+          class="mx-auto w-full max-w-[13rem] rounded-[1.75rem] lg:absolute lg:top-[3%] lg:left-1/2 lg:w-[24%] lg:max-w-none lg:-translate-x-1/2"
+          aria-label="A looping preview of the barber side of the app: the daily schedule, bookings and earnings.">
+          <source src="assets/img/trimova-barber-phone.webm" type="video/webm">
+          <source src="assets/img/trimova-barber-phone.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <ul class="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2 lg:sr-only">
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">01</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Your day at a glance</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Your home screen lays out every booked appointment on a clear daily timeline.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">02</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Every booking, one place</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">View all the appointments your shop has received.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">03</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Grow your team</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Add barbers to your shop so clients can book them directly.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5">
+          <p class="font-display text-xs font-bold text-brand">04</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Know your numbers</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">See revenue and analytics for each barber and for the shop as a whole.</p>
+        </li>
+        <li class="rounded-2xl border border-line bg-canvas p-5 sm:col-span-2">
+          <p class="font-display text-xs font-bold text-brand">05</p>
+          <h3 class="mt-2 text-base font-semibold text-ink">Keep clients coming back</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">Reward your regulars with loyalty programs.</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 </main>
 
 <script>
-const heroVideo = document.getElementById('heroVideo');
+const loopingVideos = Array.prototype.slice.call(document.querySelectorAll('[data-loop]'));
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 // Hold on a still frame for anyone who asked for less motion.
-function syncHeroVideo() {
-  if (!heroVideo) return;
-  if (reduceMotion.matches) heroVideo.pause();
-  else heroVideo.play().catch(function () {});
+function syncVideos() {
+  loopingVideos.forEach(function (v) {
+    if (reduceMotion.matches) {
+      v.preload = 'auto';
+      v.pause();
+    } else if (isOnScreen(v)) {
+      v.play().catch(function () {});
+    }
+  });
 }
-syncHeroVideo();
-reduceMotion.addEventListener('change', syncHeroVideo);
 
-// Stop decoding the video once it is scrolled out of view.
-if (heroVideo && 'IntersectionObserver' in window) {
-  new IntersectionObserver(function (entries) {
+function isOnScreen(el) {
+  const r = el.getBoundingClientRect();
+  return r.bottom > 0 && r.top < window.innerHeight && r.width > 0;
+}
+
+// Only decode a video while it is actually on screen.
+if ('IntersectionObserver' in window) {
+  const watcher = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (reduceMotion.matches) return;
-      if (e.isIntersecting) heroVideo.play().catch(function () {});
-      else heroVideo.pause();
+      if (e.isIntersecting) e.target.play().catch(function () {});
+      else e.target.pause();
     });
-  }, { threshold: 0.05 }).observe(heroVideo);
+  }, { threshold: 0.05 });
+  loopingVideos.forEach(function (v) { watcher.observe(v); });
 }
+
+syncVideos();
+reduceMotion.addEventListener('change', syncVideos);
+
+// Customer / Barber switch.
+const tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+
+function selectTab(tab) {
+  tabs.forEach(function (t) {
+    const on = t === tab;
+    t.setAttribute('aria-selected', String(on));
+    t.tabIndex = on ? 0 : -1;
+    t.classList.toggle('bg-amber', on);
+    t.classList.toggle('text-night', on);
+    t.classList.toggle('text-ink-soft', !on);
+    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+  });
+  syncVideos();
+}
+
+tabs.forEach(function (tab) {
+  tab.addEventListener('click', function () { selectTab(tab); });
+
+  tab.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    const step = e.key === 'ArrowRight' ? 1 : tabs.length - 1;
+    const next = tabs[(tabs.indexOf(tab) + step) % tabs.length];
+    next.focus();
+    selectTab(next);
+  });
+});
 
 // Mobile menu.
 const navToggle = document.getElementById('navToggle');
