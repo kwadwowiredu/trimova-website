@@ -58,3 +58,16 @@
     outline-offset: 2px;
   }
 }
+
+@layer components {
+  /* Continues the hero clip's own dark teal lower edge (#102a2b) down into the
+     page background, so the copy below sits on one unbroken gradient. */
+  .hero-fade {
+    background-image: linear-gradient(
+      to bottom,
+      #102a2b 0%,
+      #0a2026 40%,
+      var(--color-night) 100%
+    );
+  }
+}
