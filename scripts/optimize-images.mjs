@@ -6,11 +6,11 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-// A plain filename comes from assets/photos; a path with a slash is relative to the project root.
+// Bare filename = assets/photos. Path with a slash = from project root.
 const src = (f) => (f.includes('/') ? resolve(root, f) : resolve(root, 'assets/photos', f));
 const out = (f) => resolve(root, 'assets/img', f);
 
-// width = display width x2, for sharpness on high-density screens. Never upscales.
+// width = 2x display size, for retina. Never upscales.
 const JOBS = [
   // Photography
   { from: 'client_photo3.jpg', to: 'client-chair.webp', width: 736, q: 80 },
@@ -30,11 +30,19 @@ const JOBS = [
   { from: 'staff_mgt_photo.PNG', to: 'screen-staff.webp', width: 640, q: 82 },
   { from: 'performance_photo.PNG', to: 'screen-performance.webp', width: 640, q: 82 },
 
-  // Features section. crop values are fractions of the source image.
+  // Features section. crop values are fractions of the source.
   { from: 'assets/img/trimova-client-features.png', to: 'client-features.webp', width: 1800, q: 86 },
   { from: 'assets/img/trimova-client-features.png', to: 'client-features-phones.webp', width: 860, q: 86,
     crop: { left: 0.265, top: 0.15, width: 0.465, height: 0.56 } },
   { from: 'assets/img/trimova-barber-features.png', to: 'barber-features.webp', width: 1800, q: 86 },
+
+  // Client feature art: transparent phones plus one file per floating card.
+  { from: 'assets/img/feature_image-transparent.png', to: 'client-phones.webp', width: 1200, q: 86 },
+  { from: 'assets/img/Client features — recommended.png', to: 'card-recommended.webp', width: 700, q: 88 },
+  { from: 'assets/img/Client features — near you.png', to: 'card-near-you.webp', width: 700, q: 88 },
+  { from: 'assets/img/Client features — time.png', to: 'card-time.webp', width: 700, q: 88 },
+  { from: 'assets/img/Client features — reminder.png', to: 'card-reminder.webp', width: 700, q: 88 },
+  { from: 'assets/img/Client features — reschedule.png', to: 'card-reschedule.webp', width: 740, q: 88 },
 ];
 
 await mkdir(out('.'), { recursive: true });

@@ -4,7 +4,7 @@
   --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 
-  /* Indigo, matching the mobile app's accent colour. */
+  /* Indigo — matches the app's accent. */
   --color-brand: #221ea2;
   --color-brand-deep: #171262;
   --color-brand-soft: #4e4ad1;
@@ -15,27 +15,32 @@
   --color-ink-soft: #4a5568;
   --color-mark: #2b363c;
   --color-canvas: #f9f9ff;
+  --color-mist: #f4f6fb;
   --color-line: #e2e8f8;
 
-  /* Warm accent, used for buttons and highlights. */
+  /* Warm accent for buttons and highlights. */
   --color-amber: #fdb276;
   --color-amber-wash: #fff4ea;
   --color-amber-ink: #7c3f06;
 
-  --color-success: #0a8a44;
+  --color-success: #07703a;
   --color-success-wash: #e3f8ec;
 
-  /* Dark background, matched to the hero video's own edge colour. */
+  /* Dark background, matched to the hero clip's edge. */
   --color-night: #00131d;
   --color-night-deep: #00090f;
   --color-night-line: #16323f;
 
-  /* Purple, taken from the app's barber screens. */
+  /* Purple from the app's barber screens. */
   --color-violet: #5441b6;
   --color-violet-bright: #8278e8;
 }
 
 @layer base {
+  :root {
+    /* Header height: its content plus the vertical padding used on it. */
+    --nav-h: calc(2.75rem + 2 * clamp(0.75rem, 3vh, 2.25rem));
+  }
   html {
     scroll-behavior: smooth;
   }
@@ -52,7 +57,7 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
-  /* Amber reads clearly against the dark background. */
+  /* Amber reads clearly on dark. */
   :focus-visible {
     outline: 2px solid var(--color-amber);
     outline-offset: 2px;
@@ -60,8 +65,26 @@
 }
 
 @layer components {
-  /* Continues the hero clip's own dark teal lower edge (#102a2b) down into the
-     page background, so the copy below sits on one unbroken gradient. */
+  /* Carries the clip's teal edge (#102a2b) down into the page background. */
+  /* Layered shadow so cards read as lifted, not pasted on. drop-shadow follows
+     the PNG's alpha, so it hugs the rounded card rather than a box. */
+  .tv-card {
+    filter:
+      drop-shadow(0 1px 2px rgba(10, 22, 48, 0.05))
+      drop-shadow(0 10px 18px rgba(10, 22, 48, 0.09))
+      drop-shadow(0 26px 44px rgba(10, 22, 48, 0.13));
+  }
+
+  /* Cards drift gently; delays are staggered so they do not move as one. */
+  @keyframes tv-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+  .tv-float { animation: tv-float 7s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .tv-float { animation: none; }
+  }
+
   .hero-fade {
     background-image: linear-gradient(
       to bottom,
